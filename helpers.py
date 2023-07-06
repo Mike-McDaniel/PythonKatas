@@ -1,2 +1,2 @@
-def greeting(username): # greets the user
+def greeting(username): # github test
     return 'hello ' +         username +'!'
