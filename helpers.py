@@ -10,9 +10,12 @@ def add10(x):
 def square(x):
     return x**2
 
-def sum_of_squares(x):
+def sum_of_squares1(x):
     return add(square(x), square(x))
 
 def sum_of_squares2(x):
     square_of_x=square(x)
     return add(square_of_x, square_of_x)
+
+def dif_between_sumofsquares1_2(x=0,y=0):
+    return x-y # can i pull returns from other functions as inputs for a new return?
