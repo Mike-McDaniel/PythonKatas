@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import add10, add, dif_between_sumofsquares1_2, greeting, square, sum_of_squares1, sum_of_squares2
+from helpers import add10, add, dif, dif_between_sum_of_squares1_2, greeting, square, sum_of_squares1, sum_of_squares2
 
 class TestStringMethods(unittest.TestCase):
 
@@ -31,15 +31,20 @@ class TestStringMethods(unittest.TestCase):
 
     def test_sum_of_squares1(self):
         self.assertEqual(sum_of_squares1(3), 18)
+        self.assertEqual(sum_of_squares1(2), 8)
+        self.assertEqual(sum_of_squares1(1), 2)
 
     def test_sum_of_squares2(self):
         self.assertEqual(sum_of_squares2(3), 18)
 
-    def test_dif_between_sumofsquares1_2(self):
-        self.assertEqual(dif_between_sumofsquares1_2(18,18), 0)
-        self.assertEqual(dif_between_sumofsquares1_2(1), 1)
-        self.assertEqual(dif_between_sumofsquares1_2(), 0)
-        
+    def test_dif(self):
+        self.assertEqual(dif(18,18), 0)
+        self.assertEqual(dif(1), 1)
+        self.assertEqual(dif(), 0)
+        self.assertEqual(dif(3,2), 1)
+
+    def test_dif_between_sum_of_squares1_2(self):
+        self.assertEqual(dif_between_sum_of_squares1_2(2,1), 6)
 
 if __name__ == '__main__':
     unittest.main()

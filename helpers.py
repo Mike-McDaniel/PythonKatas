@@ -17,5 +17,10 @@ def sum_of_squares2(x):
     square_of_x=square(x)
     return add(square_of_x, square_of_x)
 
-def dif_between_sumofsquares1_2(x=0,y=0):
-    return x-y # can i pull returns from other functions as inputs for a new return?
+def dif(x=0,y=0):
+    return x-y
+
+def dif_between_sum_of_squares1_2(x,y):
+    sum_1=sum_of_squares1(x)
+    sum_2=sum_of_squares2(y)
+    return dif(sum_1,sum_2)
