@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import add10, add, dif, dif_between_sum_of_squares1_2, greeting, square, sum_of_squares1, sum_of_squares2
+from helpers import add10, add, dif, dif_between_sum_of_squares1_2, get_value, greeting, square, sum_of_squares1, sum_of_squares2
 
 class TestStringMethods(unittest.TestCase):
 
@@ -45,6 +45,23 @@ class TestStringMethods(unittest.TestCase):
 
     def test_dif_between_sum_of_squares1_2(self):
         self.assertEqual(dif_between_sum_of_squares1_2(2,1), 6)
+
+    # "4D" getValue -> 4
+    # "TS" getValue -> 10
+    # "KS" getValue -> 13 
+    # "AS" getValue -> 14 
+    def test_get_value(self):
+        self.assertEqual(get_value("4D"), 4)
+        self.assertEqual(get_value("TS"), 10)
+        self.assertEqual(get_value("JS"), 11)
+        self.assertEqual(get_value("QS"), 12)
+        self.assertEqual(get_value("KS"), 13)
+        self.assertEqual(get_value("AS"), 14) # imperfect (leaky) abstraction in blackjack. This is poker
+
+    # "4D" get_suit -> "diamonds"
+    # "TS" get_suit -> "spades"
+    # "KH" get_suit -> "hearts"
+    # "AC" get_suit -> "clubs"
 
 if __name__ == '__main__':
     unittest.main()
