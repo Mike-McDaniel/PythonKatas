@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import add10, add, dif, dif_between_sum_of_squares1_2, get_value, greeting, square, sum_of_squares1, sum_of_squares2
+from helpers import add10, add, dif, dif_between_sum_of_squares1_2, get_suit, get_suit_value, get_value, greeting, of_a_kind, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2
 
 class TestStringMethods(unittest.TestCase):
 
@@ -46,12 +46,20 @@ class TestStringMethods(unittest.TestCase):
     def test_dif_between_sum_of_squares1_2(self):
         self.assertEqual(dif_between_sum_of_squares1_2(2,1), 6)
 
-    # "4D" getValue -> 4
-    # "TS" getValue -> 10
-    # "KS" getValue -> 13 
-    # "AS" getValue -> 14 
+    # "4D" get_value -> 4
+    # "TS" get_value -> 10
+    # "KS" get_value -> 13 
+    # "AS" get_value -> 14 
+    
     def test_get_value(self):
+        self.assertEqual(get_value("2H"), 2)
+        self.assertEqual(get_value("3C"), 3)
         self.assertEqual(get_value("4D"), 4)
+        self.assertEqual(get_value("5D"), 5)
+        self.assertEqual(get_value("6C"), 6)
+        self.assertEqual(get_value("7D"), 7)
+        self.assertEqual(get_value("8S"), 8)
+        self.assertEqual(get_value("9D"), 9)
         self.assertEqual(get_value("TS"), 10)
         self.assertEqual(get_value("JS"), 11)
         self.assertEqual(get_value("QS"), 12)
@@ -62,6 +70,48 @@ class TestStringMethods(unittest.TestCase):
     # "TS" get_suit -> "spades"
     # "KH" get_suit -> "hearts"
     # "AC" get_suit -> "clubs"
+
+    def test_get_suit(self):
+        self.assertEqual(get_suit("6C"), "clubs")
+        self.assertEqual(get_suit("4D"), "diamonds")
+        self.assertEqual(get_suit("2H"), "hearts")
+        self.assertEqual(get_suit("QS"), "spades")
+
+    def test_get_suit_value(self):
+        self.assertEqual(get_suit_value("6C"), 0.25)
+        self.assertEqual(get_suit_value("4D"), 0.50)
+        self.assertEqual(get_suit_value("2H"), 0.75)
+        self.assertEqual(get_suit_value("QS"), 1)
+
+
+    def test_sum_of_card_value(self):
+        self.assertEqual(sum_of_card_value("2C"), 2.25)
+        self.assertEqual(sum_of_card_value("4D"), 4.50)
+        self.assertEqual(sum_of_card_value("AS"), 15)
+
+
+    def test_pair(self):
+        self.assertEqual(pair("4D", "4H"), ("PAIR OF ", 4, "'s!!", 8, "POINTS!"))
+        self.assertEqual(pair("TS", "TC"), ("PAIR OF ", 10, "'s!!", 20, "POINTS!"))
+
+
+    def test_of_a_kind(self):
+        self.assertEqual(of_a_kind("4C", "4D", "2H", "3S", "6C"), 8)
+
+
+    def test_two_of_a_kind(self):
+        self.assertEqual(two_of_a_kind("4C", "4D", "2H", "3S", "6C"), 
+                         ("PAIR OF ", 4, "'s!!", 8, "POINTS!"))
+        
+
+    def test_three_of_a_kind(self):
+        self.assertEqual(three_of_a_kind("4C", "4D", "4H", "3S", "6C"), 
+                         ("THREE ", 4, "'s!!", 12, "POINTS!"))
+        self.assertEqual(three_of_a_kind("TC", "TD", "TH", "3S", "6C"), 
+                         ("THREE ", 10, "'s!!", 30, "POINTS!"))
+        
+# combine of_a_kind functions next and improve on the logic
+
 
 if __name__ == '__main__':
     unittest.main()
