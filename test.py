@@ -64,7 +64,10 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(get_value("JS"), 11)
         self.assertEqual(get_value("QS"), 12)
         self.assertEqual(get_value("KS"), 13)
-        self.assertEqual(get_value("AS"), 14) # imperfect (leaky) abstraction in blackjack. This is poker
+        self.assertEqual(get_value("AS"), 14)
+                                        # ^^ this could be called imperfect (leaky) abstraction in blackjack,
+                                        # because it can have more than one value.
+                                        # This is poker and is not an issue. One value is ok.
 
     # "4D" get_suit -> "diamonds"
     # "TS" get_suit -> "spades"
@@ -78,16 +81,16 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(get_suit("QS"), "spades")
 
     def test_get_suit_value(self):
-        self.assertEqual(get_suit_value("6C"), 0.25)
-        self.assertEqual(get_suit_value("4D"), 0.50)
-        self.assertEqual(get_suit_value("2H"), 0.75)
-        self.assertEqual(get_suit_value("QS"), 1)
+        self.assertEqual(get_suit_value("6C"), 0.2)
+        self.assertEqual(get_suit_value("4D"), 0.4)
+        self.assertEqual(get_suit_value("2H"), 0.6)
+        self.assertEqual(get_suit_value("QS"), 0.8)
 
 
     def test_sum_of_card_value(self):
-        self.assertEqual(sum_of_card_value("2C"), 2.25)
-        self.assertEqual(sum_of_card_value("4D"), 4.50)
-        self.assertEqual(sum_of_card_value("AS"), 15)
+        self.assertEqual(sum_of_card_value("2C"), 2.2)
+        self.assertEqual(sum_of_card_value("4D"), 4.4)
+        self.assertEqual(sum_of_card_value("AS"), 14.8)
 
 
     def test_pair(self):
@@ -110,7 +113,8 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(three_of_a_kind("TC", "TD", "TH", "3S", "6C"), 
                          ("THREE ", 10, "'s!!", 30, "POINTS!"))
         
-# combine of_a_kind functions next and improve on the logic
+# combine of_a_kind functions next and improve on the logic.
+# think about what happens when of_a_kind is not found.
 
 
 if __name__ == '__main__':

@@ -67,8 +67,8 @@ def get_value(card):
     first_letter = card[0]
     return card_dict_value[first_letter]
 
-# ()  means calling a function
-# []  means indexing a dict/string/array/list 
+# ()  means calling a function.
+# []  means indexing a dict/string/array/list.
 
 def get_suit(card):
 
@@ -84,10 +84,10 @@ def get_suit(card):
 
 def get_suit_value(card):
     card_dict_suit = {
-        "C": 0.25,
-        "D": 0.50,
-        "H": 0.75,
-        "S": 1,
+        "C": 0.2,
+        "D": 0.4,
+        "H": 0.6,
+        "S": 0.8,
     }
     second_letter = card[1]
     return card_dict_suit[second_letter]
@@ -137,9 +137,10 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
         return "THREE ", (card1), "'s!!", score, "POINTS!"
     
 
-# combine of_a_kind functions next and improve on the logic
+# combine of_a_kind functions next and improve on the logic.
+# think about what happens when of_a_kind is not found.
 
-#                           test_of_a_kind
+#        current logic-->>   test_of_a_kind
 #                                 |
 #                             of_a_kind
 #                                 |                   
@@ -148,3 +149,6 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
 #                            if statement
 #                                 |
 #                                add 
+
+# create a print dictionary for different hands of play??? or is
+# this not logical????
