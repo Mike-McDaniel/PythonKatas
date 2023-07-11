@@ -137,7 +137,7 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
         return "THREE ", (card1), "'s!!", score, "POINTS!"
     
 
-# combine of_a_kind functions next and improve on the logic.
+# combine of_a_kind functions next and improve on the logic. *Operate on a list
 # think about what happens when of_a_kind is not found.
 
 #        current logic-->>   test_of_a_kind
