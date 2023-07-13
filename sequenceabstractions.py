@@ -51,11 +51,11 @@ def oddOrPlus10(numbers):
 # return empty to N items, where N is the length of the list
 
 def onlyOdds(numbers):
-	newNumbers = []
-	for number in numbers:
-		if (number % 2) == 1:
-			newNumbers.append(number)
-	return newNumbers
+	newNumbers = [] # seed
+	for number in numbers: # loop
+		if (number % 2) == 1: # conditional
+			newNumbers.append(number) # combination logic
+	return newNumbers # return the accumlate
 
 def startsWithS(names):
 	newNames = []
@@ -63,3 +63,32 @@ def startsWithS(names):
 		if name[0] == "S":
 			newNames.append(name)
 	return newNames
+
+# reduce functions
+
+def sumList(numbers):
+	total = 0
+	for number in numbers:
+		total = total + number
+	return total
+
+def concatLetters(letters):
+	name = ""
+	for letter in letters:
+		name = name + letter
+	return name
+
+def reverseStrings(letters):
+	eman = ""
+	for letter in letters:
+		eman = letter + eman
+	return eman
+
+def duplicateLetters(letters):
+	dupstring = ""
+	for letter in letters:
+		dupstring = letter + dupstring + letter
+		# "a" + "" + "a"   ->  "aa"
+		# "b" + "aa" + "b"  -> "baab"
+		# "c" + "baab" + "c"  -> "cbaabc"
+	return dupstring

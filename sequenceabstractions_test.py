@@ -1,9 +1,10 @@
 import unittest
-from sequenceabstractions import addTenToAll, firstLetters, oddOrEven, oddOrPlus10, onlyOdds, startsWithS
+from sequenceabstractions import addTenToAll, concatLetters, duplicateLetters, firstLetters, oddOrEven, oddOrPlus10, onlyOdds, reverseStrings, startsWithS, sumList
 
 class TestSequenceAbstractions(unittest.TestCase):
 
 	# mapping functions
+    # a[N] -> b[N]
     def test_addTenToAll(self):
 		# arrange
         numbers = [1,2,3,4,5]
@@ -38,6 +39,7 @@ class TestSequenceAbstractions(unittest.TestCase):
 
 
 	# filter functions
+    # a[N] -> a[0-N]
     def test_OnlyOdds(self):
 		# arrange
         numbers = [1,2,4,6,7]
@@ -62,6 +64,26 @@ class TestSequenceAbstractions(unittest.TestCase):
 		# assert
         self.assertListEqual(actual, ["Steve", "Sam"])
 
+
+    # reduce functions  
+    # a[N] -> b
+    # collapsing a list into a single thing
+        # expanding a list into a many things
+
+    def test_sum(self):
+        self.assertEqual(sumList([1,1,1,2]), 5)
+
+    def test_concatLetters(self):
+        self.assertEqual(concatLetters([]), "")
+        self.assertEqual(concatLetters(["S","a", "m"]), "Sam")
+
+    def test_reverseStrings(self):
+        self.assertEqual(reverseStrings([]), "")
+        self.assertEqual(reverseStrings(["S","a", "m"]), "maS")
+
+    def test_duplicateLetters(self):
+        self.assertEqual(duplicateLetters([]), "")
+        self.assertEqual(duplicateLetters(["a", "b", "c"]), "cbaabc")
 
 if __name__ == '__main__':
     unittest.main()
