@@ -70,25 +70,31 @@ def sumList(numbers):
 	total = 0
 	for number in numbers:
 		total = total + number
+		# 0 + 1 -> 1
+		# 1 + 1 -> 2
+		# 2 + 1 -> 3
+		# 3 + 2 -> 5
 	return total
 
 def concatLetters(letters):
 	name = ""
 	for letter in letters:
-		name = name + letter
+		name = name + letter # position matters (positional)
+			   # ^^ building to the right of the seed (seed = name)
 	return name
 
 def reverseStrings(letters):
 	eman = ""
 	for letter in letters:
-		eman = letter + eman
+		eman = letter + eman # position matters (positional)
+			   # ^^ building to the left of the seed (seed = eman)
 	return eman
 
 def duplicateLetters(letters):
 	dupstring = ""
 	for letter in letters:
-		dupstring = letter + dupstring + letter
-		# "a" + "" + "a"   ->  "aa"
-		# "b" + "aa" + "b"  -> "baab"
-		# "c" + "baab" + "c"  -> "cbaabc"
+		dupstring = letter + dupstring + letter # position matters (positional)
+		# "a" +   ""   + "a"   	->   "aa"
+		# "b" +  "aa"  + "b"  	-> 	"baab"
+		# "c" + "baab" + "c"  	-> "cbaabc"
 	return dupstring
