@@ -1,27 +1,16 @@
 
 
 
-# transforming a list
-# "mapping" a list
-#       map = output list is always the same length as the input list
-# def addTenToAll(numbers):
-# 	newNumbers = []
-# 	for x in numbers:
-# 		newNumbers.append(x + 10)
-# 	return newNumbers
+# 					mapping functions
+# a[N] -> b[N]
+# transforming a list = "mapping" a list
+# map = output list is always the same length as the input list
 
 def addTenToAll(numbers):
-	new_numbers = []
-	for x in numbers:
-		new_numbers.append(x + 10)
-	return new_numbers
-
-
-# def firstLetters(names):
-# 	newNames = []
-# 	for name in names:
-# 		newNames.append(name[0])
-# 	return newNames
+	new_numbers = [] 				# seed
+	for x in numbers:				# loop
+		new_numbers.append(x + 10)	# condition
+	return new_numbers				# return the accumulate
 
 def firstLetters(names):
 	new_names = []
@@ -47,15 +36,18 @@ def oddOrPlus10(numbers):
 			newNumbers.append("odd")
 	return newNumbers
 
-# filter functions (must have if statement)
+
+# 					filter functions
+# must have an if statement (conditional and combination logic)
+# a[N] -> a[0-N]
 # return empty to N items, where N is the length of the list
 
 def onlyOdds(numbers):
-	newNumbers = [] # seed
-	for number in numbers: # loop
-		if (number % 2) == 1: # conditional
+	newNumbers = [] 				  # seed
+	for number in numbers: 			  # loop
+		if (number % 2) == 1: 		  # conditional
 			newNumbers.append(number) # combination logic
-	return newNumbers # return the accumlate
+	return newNumbers 				  # return the accumlate
 
 def startsWithS(names):
 	newNames = []
@@ -64,37 +56,70 @@ def startsWithS(names):
 			newNames.append(name)
 	return newNames
 
-# reduce functions
+
+# 					reduce functions
+# a[N] -> b
+# collapsing a list into a single thing
+# expanding a list into a many things
 
 def sumList(numbers):
-	total = 0
-	for number in numbers:
-		total = total + number
+	total = 0 				   # seed
+	for number in numbers: 	   # loop
+		total = total + number #condition
 		# 0 + 1 -> 1
 		# 1 + 1 -> 2
 		# 2 + 1 -> 3
 		# 3 + 2 -> 5
-	return total
+	return total 			   # return the accumulate
 
 def concatLetters(letters):
 	name = ""
 	for letter in letters:
-		name = name + letter # position matters (positional)
-			   # ^^ building to the right of the seed (seed = name)
+		name = name + letter # adding to the right of the seed
+			   				 # position matters (positional)
 	return name
 
 def reverseStrings(letters):
 	eman = ""
 	for letter in letters:
-		eman = letter + eman # position matters (positional)
-			   # ^^ building to the left of the seed (seed = eman)
+		eman = letter + eman # adding to the left of the seed
+			   				 # position matters (positional)
 	return eman
 
 def duplicateLetters(letters):
 	dupstring = ""
 	for letter in letters:
-		dupstring = letter + dupstring + letter # position matters (positional)
-		# "a" +   ""   + "a"   	->   "aa"
-		# "b" +  "aa"  + "b"  	-> 	"baab"
-		# "c" + "baab" + "c"  	-> "cbaabc"
-	return dupstring
+		dupstring = letter + dupstring + letter # (positional)
+					# "a"  +    ""     +   "a"  ->   "aa"
+					# "b"  +   "aa"    +   "b"  -> 	"baab"
+					# "c"  +  "baab"   +   "c"  -> "cbaabc"
+	return dupstring # return accumulate = "cbaabc"
+
+
+#                   exercise
+# could be any kind of function (map, filter, reduce).
+# steve write test, mike build function
+
+# how to start a function before building the loop and condition
+# 			\/\/\/
+# def functionname(perameter): 
+	# seed = []
+	# return seed
+
+def countLetters(names): # (mapping)
+	counts = []       			 # seed
+	for name in names: 			 # loop
+		counts.append(len(name)) # condition
+	return counts     			 # return accumulate
+
+def mysteryMath(numbers): # (mapping)
+	mm = []
+	for number in numbers:
+		mm.append(number / 5)
+	return mm
+
+def firstNLast(names): # (mapping)
+	fNL = []
+	for name in names:
+		fNL.append(name[0] + name[len(name)-1])
+	return fNL

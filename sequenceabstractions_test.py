@@ -1,10 +1,13 @@
 import unittest
-from sequenceabstractions import addTenToAll, concatLetters, duplicateLetters, firstLetters, oddOrEven, oddOrPlus10, onlyOdds, reverseStrings, startsWithS, sumList
+from sequenceabstractions import addTenToAll, concatLetters, countLetters, duplicateLetters, firstLetters, firstNLast, mysteryMath, oddOrEven, oddOrPlus10, onlyOdds, reverseStrings, startsWithS, sumList
 
 class TestSequenceAbstractions(unittest.TestCase):
 
-	# mapping functions
+	#                   mapping functions
     # a[N] -> b[N]
+    # transforming a list = "mapping" a list
+    # map = output list is always the same length as the input list
+
     def test_addTenToAll(self):
 		# arrange
         numbers = [1,2,3,4,5]
@@ -38,8 +41,11 @@ class TestSequenceAbstractions(unittest.TestCase):
         self.assertListEqual(actual, ["odd", 12, 14, 16, "odd" ])
 
 
-	# filter functions
+	#                   filter functions
+    # must have an if statement
     # a[N] -> a[0-N]
+    # return empty to N items, where N is the length of the list
+
     def test_OnlyOdds(self):
 		# arrange
         numbers = [1,2,4,6,7]
@@ -65,10 +71,10 @@ class TestSequenceAbstractions(unittest.TestCase):
         self.assertListEqual(actual, ["Steve", "Sam"])
 
 
-    # reduce functions  
+    #                   reduce functions  
     # a[N] -> b
     # collapsing a list into a single thing
-        # expanding a list into a many things
+    # expanding a list into a many things
 
     def test_sum(self):
         self.assertEqual(sumList([1,1,1,2]), 5)
@@ -84,6 +90,23 @@ class TestSequenceAbstractions(unittest.TestCase):
     def test_duplicateLetters(self):
         self.assertEqual(duplicateLetters([]), "")
         self.assertEqual(duplicateLetters(["a", "b", "c"]), "cbaabc")
+
+#                   exercise
+# could be any kind of function (map, filter, reduce).
+# steve write test, mike build function
+ 
+    def test_countLetters(self):
+        self.assertEqual(countLetters([]), [])
+        self.assertEqual(countLetters(["sam", "steve", "mike"]), [3, 5, 4])
+
+    def test_mysteryMath(self):
+        self.assertEqual(mysteryMath([]), [])
+        self.assertEqual(mysteryMath([5, 10, 15, 20]), [1, 2, 3, 4])
+
+    def test_firstNLast(self):
+        self.assertEqual(firstNLast([]), [])
+        self.assertEqual(firstNLast(["test", "this", "out", "now"]),
+                                       ["tt", "ts", "ot", "nw"])
 
 if __name__ == '__main__':
     unittest.main()
