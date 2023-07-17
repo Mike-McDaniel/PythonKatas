@@ -1,6 +1,6 @@
 import unittest
 
-from helpers import add10, add, dif, dif_between_sum_of_squares1_2, get_suit, get_suit_value, get_value, greeting, of_a_kind, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2
+from helpers import add10, add, dif, dif_between_sum_of_squares1_2, get_suit, get_suit_value, get_value, greeting, of_a_kind, square_of_name_length, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2
 
 class TestStringMethods(unittest.TestCase):
 
@@ -115,6 +115,7 @@ class TestStringMethods(unittest.TestCase):
         
 # combine of_a_kind functions next and improve on the logic.
 # think about what happens when of_a_kind is not found.
+
 
 
 if __name__ == '__main__':

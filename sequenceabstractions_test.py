@@ -1,5 +1,5 @@
 import unittest
-from sequenceabstractions import addTenToAll, concatLetters, countLetters, duplicateLetters, firstLetters, firstNLast, mysteryMath, oddOrEven, oddOrPlus10, onlyOdds, reverseStrings, startsWithS, sumList
+from sequenceabstractions import addTenToAll, concatLetters, countLetters, duplicateLetters, firstLetters, firstNLast, mysteryMath, oddOrEven, oddOrPlus10, onlyOdds, reverseStrings, square_of_name_length, startsWithS, sumList
 
 class TestSequenceAbstractions(unittest.TestCase):
 
@@ -107,6 +107,9 @@ class TestSequenceAbstractions(unittest.TestCase):
         self.assertEqual(firstNLast([]), [])
         self.assertEqual(firstNLast(["test", "this", "out", "now"]),
                                        ["tt", "ts", "ot", "nw"])
+        
+    def test_square_of_name_length(self):
+        self.assertEqual(square_of_name_length(["Mike"]), [16])
 
 if __name__ == '__main__':
     unittest.main()

@@ -123,3 +123,13 @@ def firstNLast(names): # (mapping)
 	for name in names:
 		fNL.append(name[0] + name[len(name)-1])
 	return fNL
+
+def square_of_name_length(name):
+    counts = []
+    for letter in name:
+        counts.append(len(letter)**2)
+    return counts
+
+def square_of_name_length(name):
+    counts = len([name])
+    return counts**2
