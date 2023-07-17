@@ -80,11 +80,11 @@ def concatLetters(letters):
 	return name
 
 def reverseStrings(letters):
-	eman = ""
+	name = ""
 	for letter in letters:
-		eman = letter + eman # adding to the left of the seed
+		name = letter + name # adding to the left of the seed
 			   				 # position matters (positional)
-	return eman
+	return name
 
 def duplicateLetters(letters):
 	dupstring = ""
@@ -124,12 +124,12 @@ def firstNLast(names): # (mapping)
 		fNL.append(name[0] + name[len(name)-1])
 	return fNL
 
-def square_of_name_length(name):
+def square_of_name_length(name): # (mapping)
     counts = []
     for letter in name:
         counts.append(len(letter)**2)
     return counts
 
-def square_of_name_length(name):
-    counts = len([name])
-    return counts**2
+# def square_of_name_length(name):
+#     counts = len([name]) #  This did not work because I am counting the number of eliments in a string and not the number of indexs in a string eliment.
+#     return counts**2
