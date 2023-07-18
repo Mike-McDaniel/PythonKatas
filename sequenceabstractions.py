@@ -110,7 +110,7 @@ def XduplicateLetters(letters):
 	return dupstring # return accumulate = "cbaabc"
 
 
-#                   exercise
+#                   exercise 1
 # could be any kind of function (map, filter, reduce).
 # steve write test, mike build function
 
@@ -139,7 +139,7 @@ def XfirstNLast(names): # (mapping)
 	return fNL
 
 
-#                   exercise
+#                   exercise 2
 # self written tests and functions
 
 
