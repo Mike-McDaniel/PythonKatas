@@ -1,7 +1,6 @@
 import unittest
 
 from SApractice import FirstLetters, OddOrEven, OddOrPlus10, addTenToAll, lengthOfString
-
 class TestSequenceAbstractions(unittest.TestCase):
 
 	#                   mapping functions

@@ -29,7 +29,7 @@ def OddOrPlus10(numbers):
     return new_elements
 
 def lengthOfString(strings):
-    string_count = []
+    lengths = []
     for string in strings:
-        strings.append(string + ": " + str(len(string)))
-    return string_count
+        lengths.append(string + ": " + str(len(string)))
+    return lengths
