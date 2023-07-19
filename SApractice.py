@@ -1,18 +1,52 @@
 # Mapping
 
+def addTen(number):
+    return number + 10
+
+
+# addTen = (lambda number: number + 10)
+
 def addTenToAll(numbers):
+    return list(map(lambda number: number + 10, numbers))
+
+def XaddTenToAll(numbers):
     new_numbers = []
     for number in numbers:
         new_numbers.append(number + 10)
     return new_numbers
 
 def FirstLetters(names):
+    return list(map(lambda name: name[0], names))
+
+def XFirstLetters(names):
     letter = []
     for name in names:
         letter.append(name[0])
     return letter
 
+# helper function
+def IsEven(number):
+    return number % 2 == 0
+
+# helper function
+def XNumberToOddOrEven(number):
+    return "even" if number % 2 == 0 else "odd"
+
+def NumberToOddOrEven(number):
+    if IsEven(number):
+        return "even"
+    else:
+        return "odd"
+    
+def XNumberToOddOrEven(number):
+    return "even" if IsEven(number) else "odd"
+
+
+# orchestrator function
 def OddOrEven(numbers):
+    return list(map(NumberToOddOrEven, numbers))
+
+def XOddOrEven(numbers):
     strings = []
     for number in numbers:
         if number % 2 == 0:
@@ -30,7 +64,16 @@ def OddOrPlus10(numbers):
             new_elements.append(number + 10)
     return new_elements
 
+def HOddOrPlus10(number):
+    return "odd" if number % 2 == 1 else (number + 10)
+
+def OddOrPlus10(numbers):
+    return list(map(HOddOrPlus10, numbers))
+
 def lengthOfString(strings):
+    return list(map(lambda string: string + ": " + str(len(string)), strings))
+
+def XlengthOfString(strings):
     lengths = []
     for string in strings:
         lengths.append(string + ": " + str(len(string)))
@@ -39,15 +82,10 @@ def lengthOfString(strings):
 
 
 # Filter
-
 def OnlyOdds(numbers):
-    odds = []
-    for number in numbers:
-        if number % 2 == 1:
-            odds.append(number)
-    return odds
+    return list(filter(lambda number: number % 2 == 1, numbers))
 
-def OnlyOdds2(numbers):
+def XOnlyOdds(numbers):
     odds = []
     for number in numbers:
         if number % 2 == 1:
@@ -55,6 +93,9 @@ def OnlyOdds2(numbers):
     return odds
 
 def StartsWithS(names):
+    return list(filter(lambda name: name[0] == "S", names))
+
+def XStartsWithS(names):
     s_names = []
     for name in names:
         if name[0] == "S":
@@ -131,3 +172,29 @@ def square_of_name_length(names):
 def square_of_single_name_length(name):
     length = len(name)
     return length**2
+
+
+# compound sequence abstractions
+def upperFirstLast(names):
+    bigNamE = []
+    for name in names:
+        bigNamE.append(name[0].upper() + name[1:len(name)-1] + name[len(name)-1].upper())
+    return bigNamE
+
+def onlyBigEnough(names):
+    bigNamE = []
+    for name in names:
+        if len(name) > 3:
+            bigNamE.append(name)
+    return bigNamE
+
+def bigEnoughNames(names):
+    return onlyBigEnough(upperFirstLast(names))
+
+def bigEnoughNamesN(names):
+    bigNamE = []
+    for name in names:
+        if len(name) > 3:
+            name = name[0].upper() + name[1:len(name)-1] + name[len(name)-1].upper()
+            bigNamE.append(name)
+    return bigNamE

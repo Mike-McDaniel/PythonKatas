@@ -1,6 +1,6 @@
 import unittest
 
-from SApractice import FirstLetters, OddOrEven, OddOrPlus10, OnlyOdds, OnlyOdds2, StartsWithS, addTenToAll, concatLetters, countLetters, duplicateLetters, firstNLast, lengthOfString, mysteryMath, onlyevenstrings, reverseStrings, square_of_name_length, square_of_single_name_length, sumList
+from SApractice import FirstLetters, OddOrEven, OddOrPlus10, OnlyOdds, StartsWithS, addTenToAll, bigEnoughNames, concatLetters, countLetters, duplicateLetters, firstNLast, lengthOfString, mysteryMath, onlyevenstrings, reverseStrings, square_of_name_length, square_of_single_name_length, sumList
 class TestSequenceAbstractions(unittest.TestCase):
 
 	#                   mapping functions
@@ -62,14 +62,6 @@ class TestSequenceAbstractions(unittest.TestCase):
 		# assert
         self.assertListEqual(actual, [1, 7])
 
-    def test_OnlyOdds2(self):
-		# arrange
-        numbers = [2,4,6]
-		# act
-        actual = OnlyOdds2(numbers)
-		# assert
-        self.assertListEqual(actual, [])
-
     def test_StartsWithS(self):
 		# arrange
         names = ["Steve", "Mike", "Sam"]
@@ -130,6 +122,12 @@ class TestSequenceAbstractions(unittest.TestCase):
     def test_square_of_single_name_length(self):
         self.assertEqual(square_of_single_name_length("Mike"), 16)
 
+
+# compound sequence abstractions
+
+    def test_bigEnoughNames(self):
+        self.assertEqual(bigEnoughNames([]), [])
+        self.assertEqual(bigEnoughNames(["steve", "sam", "matt"]), ["StevE", "MatT"])
 
 
 if __name__ == '__main__':

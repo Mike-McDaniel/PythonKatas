@@ -152,3 +152,10 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
 
 # create a print dictionary for different hands of play??? or is
 # this not logical????
+
+
+def finding_of_a_kind(hand):
+    score = 0
+    for card in hand:
+        card = get_value(card)
+    return score
