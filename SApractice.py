@@ -103,6 +103,12 @@ def XStartsWithS(names):
     return s_names
 
 def onlyevenstrings(strings):
+    return list(filter(lambda string: len(string) % 2 == 0, strings))
+
+def onlyevenstrings(strings):
+    return list(filter(lambda string: IsEven(len(string)), strings))
+
+def Xonlyevenstrings(strings):
     e_strings = []
     for string in strings:
         if len(string) % 2 == 0:

@@ -44,3 +44,6 @@ def getZipCodes(addresses):
     for address in addresses:
         zips.append(address["zip"])
     return zips
+
+def getZipCodes(addresses):
+    return list(map(lambda address: address["zip"], addresses))
