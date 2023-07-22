@@ -9,36 +9,43 @@ def addTen(number):
 def addTenToAll(numbers):
     return list(map(lambda number: number + 10, numbers))
 
-def XaddTenToAll(numbers):
-    new_numbers = []
-    for number in numbers:
-        new_numbers.append(number + 10)
-    return new_numbers
+# def XaddTenToAll(numbers):
+#     new_numbers = []
+#     for number in numbers:
+#         new_numbers.append(number + 10)
+#     return new_numbers
 
 def FirstLetters(names):
     return list(map(lambda name: name[0], names))
 
-def XFirstLetters(names):
-    letter = []
-    for name in names:
-        letter.append(name[0])
-    return letter
+# def XFirstLetters(names):
+#     letter = []
+#     for name in names:
+#         letter.append(name[0])
+#     return letter
 
 # helper function
 def IsEven(number):
     return number % 2 == 0
 
-# helper function
-def XNumberToOddOrEven(number):
-    return "even" if number % 2 == 0 else "odd"
-
+def NumberToOddOrEven(number):
+    if number % 2 == 0:
+        return "even"
+    else:
+        return "odd"
+    
 def NumberToOddOrEven(number):
     if IsEven(number):
         return "even"
     else:
         return "odd"
     
-def XNumberToOddOrEven(number):
+# helper function
+def NumberToOddOrEven(number):
+    return "even" if number % 2 == 0 else "odd"
+
+# orchestrator function    
+def NumberToOddOrEven(number):
     return "even" if IsEven(number) else "odd"
 
 
@@ -108,7 +115,7 @@ def onlyevenstrings(strings):
 def onlyevenstrings(strings):
     return list(filter(lambda string: IsEven(len(string)), strings))
 
-def Xonlyevenstrings(strings):
+def onlyevenstrings(strings):
     e_strings = []
     for string in strings:
         if len(string) % 2 == 0:
@@ -147,23 +154,32 @@ def duplicateLetters(letters):
 
 # Exercise 1
 
-def countLetters(strings):
+def XcountLetters(strings):
     counts = []
     for string in strings:
         counts.append(len(string))
     return counts
 
-def mysteryMath(numbers):
+def countLetters(strings):
+    return list(map(lambda string: len(string), strings))
+
+def XmysteryMath(numbers):
     new_numbers = []
     for number in numbers:
         new_numbers.append(number / 5)
     return new_numbers
 
-def firstNLast(strings):
+def mysteryMath(numbers):
+    return list(map(lambda number: number / 5, numbers))
+
+def XfirstNLast(strings):
     fNl = []
     for string in strings:
         fNl.append(string[0] + string[len(string)-1])
     return fNl
+
+def firstNLast(strings):
+    return list(map(lambda string: string[0] + string[len(string)-1], strings))
 
 
 
