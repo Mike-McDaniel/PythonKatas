@@ -154,8 +154,28 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
 # this not logical????
 
 
-def finding_of_a_kind(hand):
-    score = 0
-    for card in hand:
-        card = get_value(card)
-    return score
+# def finding_of_a_kind(hand):
+#     score = []
+#     for card in hand:
+#         if (card[0] in hand):
+#             hand[card[0]] == hand[card[0]] + 1
+#     return score
+
+
+
+# hand = {}
+# for card in ["4C", "4D", "4H", "3S", "6C"]:
+#     if (card[0] in hand):
+#         hand[card[0]] = hand[card[0]] + 1
+#     else:
+#         hand[card[0]] = 1
+# print(hand)
+
+def finding_of_a_kind(cards):
+    hand = {}
+    for card in cards:
+        if (card[0] in hand):
+            hand[card[0]] = hand[card[0]] + 1
+        else:
+            hand[card[0]] = 1
+    return hand

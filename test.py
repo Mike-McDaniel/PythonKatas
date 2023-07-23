@@ -117,9 +117,7 @@ class TestStringMethods(unittest.TestCase):
 # think about what happens when of_a_kind is not found.
 
     def test_finding_of_a_kind(self):
-        hand = ("4C", "4D", "4H", "3S", "6C")
-        actual = finding_of_a_kind(hand)
-        self.assertEqual(actual, 13.2)
+        self.assertEqual(finding_of_a_kind(["4C", "4D", "4H", "3S", "6C"]), {'4': 3, '3': 1, '6': 1})
 
 
 

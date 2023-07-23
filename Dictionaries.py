@@ -30,13 +30,13 @@ mikesAddress["zip"] = "111111"
 # print(mikesAddress)
 
 
-# numbers = {}
-# for number in [1,1,2,1,3,4,3,3,3,3]:
-#     if (number in numbers):
-#         numbers[number] = numbers[number] + 1
-#     else:
-#         numbers[number] = 1
-# print(numbers)
+numbers = {}
+for number in [1,1,2,1,3,4,3,3,3,3]:
+    if (number in numbers):
+        numbers[number] = numbers[number] + 1
+    else:
+        numbers[number] = 1
+print(numbers)
 
 
 def getZipCodes(addresses):
