@@ -138,3 +138,47 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
     score=add(card1,card2,card3)
     if card1 == card2 == card3:
         return "THREE ", (card1), "'s!!", score, "POINTS!"
+    
+
+# combine of_a_kind functions next and improve on the logic. *Operate on a list
+# think about what happens when of_a_kind is not found.
+
+#        current logic-->>   test_of_a_kind
+#                                 |
+#                             of_a_kind
+#                                 |                   
+#                             get_value
+#                                 |
+#                            if statement
+#                                 |
+#                                add 
+
+# create a print dictionary for different hands of play??? or is
+# this not logical????
+
+
+# def finding_of_a_kind(hand):
+#     score = []
+#     for card in hand:
+#         if (card[0] in hand):
+#             hand[card[0]] == hand[card[0]] + 1
+#     return score
+
+
+
+# hand = {}
+# for card in ["4C", "4D", "4H", "3S", "6C"]:
+#     if (card[0] in hand):
+#         hand[card[0]] = hand[card[0]] + 1
+#     else:
+#         hand[card[0]] = 1
+# print(hand)
+
+def finding_of_a_kind(cards):
+    hand = {}
+    for card in cards:
+        if (card[0] in hand):
+            hand[card[0]] = hand[card[0]] + 1
+        else:
+            hand[card[0]] = 1
+    return hand
