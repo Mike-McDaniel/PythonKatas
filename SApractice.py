@@ -185,38 +185,50 @@ def firstNLast(strings):
 
 # Exercise 2
 
-def square_of_name_length(names):
+def Xsquare_of_name_length(names):
     lengths = []
     for name in names:
         lengths.append(len(name)**2)
     return lengths
 
-def square_of_single_name_length(name):
+def square_of_name_length(names):
+    return list(map(lambda name: len(name)**2, names))
+
+def Xsquare_of_single_name_length(name):
     length = len(name)
     return length**2
 
+def square_of_single_name_length(name):
+    return len(name)**2
+
 
 # compound sequence abstractions
-def upperFirstLast(names):
+def XupperFirstLast(names):
     bigNamE = []
     for name in names:
         bigNamE.append(name[0].upper() + name[1:len(name)-1] + name[len(name)-1].upper())
     return bigNamE
 
-def onlyBigEnough(names):
+def upperFirstLast(names):
+    return list(map(lambda name: name[0].upper() + name[1:len(name)-1] + name[len(name)-1].upper(), names))
+
+def XonlyBigEnough(names):
     bigNamE = []
     for name in names:
         if len(name) > 3:
             bigNamE.append(name)
     return bigNamE
 
-def bigEnoughNames(names):
-    return onlyBigEnough(upperFirstLast(names))
+def onlyBigEnough(names):
+    return list(filter(lambda name: len(name) > 3, names))
 
-def bigEnoughNamesN(names):
+def XbigEnoughNamesN(names):
     bigNamE = []
     for name in names:
         if len(name) > 3:
             name = name[0].upper() + name[1:len(name)-1] + name[len(name)-1].upper()
             bigNamE.append(name)
     return bigNamE
+
+def bigEnoughNames(names):
+    return onlyBigEnough(upperFirstLast(names))
