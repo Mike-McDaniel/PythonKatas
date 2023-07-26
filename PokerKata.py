@@ -166,13 +166,19 @@ def three_of_a_kind(card1,card2,card3,card4,card5):
 
 
 
-# hand = {}
-# for card in ["4C", "4D", "4H", "3S", "6C"]:
-#     if (card[0] in hand):
-#         hand[card[0]] = hand[card[0]] + 1
-#     else:
-#         hand[card[0]] = 1
+hand = {}
+for card in ["4C", "4D", "4H", "3S", "6C", "5D", "5D", "2C", "5D", "5D", "6D"]:
+    face = card[0]
+    if (face in hand):
+        hand[face] = hand[face] + 1
+    else:
+        hand[face] = 1
+
 # print(hand)
+
+for face in hand:   # ['4','3','6']
+    count = hand[face]
+    print("'" + face + "' "  + ("X"*count))
 
 def finding_of_a_kind(cards):
     hand = {}
@@ -182,3 +188,15 @@ def finding_of_a_kind(cards):
         else:
             hand[card[0]] = 1
     return hand
+
+
+# range(4)  => [0,1,2,3]
+# range(2)  => [0,1]
+def x_printer(count_of_xs):
+    xes = ""
+    for numberThatWeArentUsing in range(count_of_xs): 
+        xes = xes + "X" 
+    return xes
+
+def of_a_kind_histogram(cards):
+    return cards

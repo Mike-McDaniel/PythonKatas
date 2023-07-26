@@ -1,19 +1,21 @@
 import unittest
 
-from PokerKata import add10, add, dif, dif_between_sum_of_squares1_2, finding_of_a_kind, get_suit, get_suit_value, get_value, greeting, of_a_kind, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2, upper
+from PokerKata import x_printer, add10, add, dif, dif_between_sum_of_squares1_2, finding_of_a_kind, get_suit, get_suit_value, get_value, greeting, of_a_kind, of_a_kind_histogram, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2, upper
 
 class TestStringMethods(unittest.TestCase):
 
     def test_upper(self):
         self.assertEqual(upper('foo'), 'FOO')
 
-    def test_upper(self):
-        self.assertEqual('foo'.upper(), 'FOO') # what's happening here?
+    def test_testing_built_in_functions(self): # testing built in function
+        self.assertEqual('foo'.upper(), 'FOO')
+        self.assertEqual('foo'.capitalize(), 'Foo')
+        self.assertListEqual('test'.split("e"), ['t', 'st'])
 
     def test_string_stuff(self):
-        self.assertEqual('5' +'6', '56')
+        self.assertEqual('5' + '6', '56')
         self.assertEqual(5 + 6, 11)
-        self.assertEqual('5+6', '5+6') # what's happening here? Not importing a test but still passing?
+        self.assertEqual('5+6', '5+6') # testing built in function
 
     def test_hello(self):
         self.assertEqual(greeting('steve'), 'hello steve!')
@@ -122,7 +124,19 @@ class TestStringMethods(unittest.TestCase):
     def test_finding_of_a_kind(self):
         self.assertEqual(finding_of_a_kind(["4C", "4D", "4H", "3S", "6C"]), {'4': 3, '3': 1, '6': 1})
 
+    # def test_of_a_kind_histogram(self):
+    #     self.assertEqual(of_a_kind_histogram(["4C", "4D", "4H", "3S", "6C"]), {'4': "XXX", '3': "X", '6': "X"})
 
+
+    def test_x_printer(self):
+        self.assertEqual(x_printer(0),  "")
+        self.assertEqual(x_printer(4),  "XXXX")
+        self.assertEqual(x_printer(2),  "XX")
+        self.assertEqual(x_printer(1),  "X")
+
+    # '4'  XXX
+    # '3'  X 
+    # '6'  X
 
 if __name__ == '__main__':
     unittest.main()
