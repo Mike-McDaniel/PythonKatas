@@ -176,7 +176,7 @@ for card in ["4C", "4D", "4H", "3S", "6C", "5D", "5D", "2C", "5D", "5D", "6D"]:
 
 for face in hand:   # ['4','3','6']
     count = hand[face]
-    print("'" + face + "' "  + ("X"*count))
+    # print("'" + face + "' "  + ("X"*count))
 
 
 # range(4)  => [0,1,2,3]
@@ -201,14 +201,35 @@ def finding_of_a_kind(cards):
 
 
 
-# def of_a_kind_histogram(cards):
-#     hand = {}
+def of_a_kind_histogram(cards):
+    hand = {}
+    for card in cards:
+        value = card[0]
+        if (value in hand):
+            hand[value] = hand[value] + "X"
+        else:
+            hand[value] = "X"
+    return hand 
+
+
+
+# for x in range(hand):
+#     xes = xes + "X" # hand.append("X"*hand[value])
+#     print(hand + xes)
+
+
+# def of_a_kind_value_histogram(hand):
+#     counts = {}
+
+# def get_card(cardInput):
+#     card = {
+#         "face": get_face(cardInput),
+#         "suit": get_suit(cardInput)
+#         }
+#     return card
+
+# def get_hand(cards):
+#     hand = []
 #     for card in cards:
-#         value = card[0]
-#         if (value in hand):
-#             hand[value] = hand[value] + 1
-#         else:
-#             hand[value] = 1
-#     for value in range(hand):
-#         hand.append("X"*hand[value])
+#         hand.append(get_card(card))
 #     return hand
