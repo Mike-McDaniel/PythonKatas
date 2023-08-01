@@ -1,6 +1,6 @@
 import unittest
 
-from PokerKataPractice import get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
+from PokerKataPractice import detect_pair, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
 
 class TestPokerKataPractice(unittest.TestCase):
 
@@ -16,11 +16,13 @@ class TestPokerKataPractice(unittest.TestCase):
 
     def test_get_card(self):
         self.assertEqual(get_card("2S")["Face"], 2)
-        self.assertEqual(get_card("2S")["Suit"], "Spades")
+        self.assertEqual(get_card("2S")["Suit"], "Spades") # ?
     
     def test_get_hand(self):
+        hand1 = get_hand(["JC", "4D"])
+        card0 = hand1[0]
+        self.assertEqual(card0["Face"], 11)
         card = get_hand(["JC", "4D"])
-        self.assertEqual(get_hand(["JC", "4D"])[0]["Face"], 11)
         self.assertEqual(card[0]["Face"], 11)
         self.assertEqual(get_hand(["JC", "4D"])[1]["Suit"], "Diamonds")
         self.assertEqual(card[1]["Suit"], "Diamonds")
@@ -35,6 +37,26 @@ class TestPokerKataPractice(unittest.TestCase):
         self.assertEqual(hand[0]["Face"], 6)
         self.assertEqual(hand[1]["Suit"], "Diamonds")
         self.assertEqual(hand[1]["Face"], 4)
+
+    def test_detect_pair_is_pair(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 3, 'Suit': 'Hearts'}]
+        isPair = detect_pair(hand)
+        self.assertEqual(isPair, True)
+
+    def test_detect_pair_is_not_pair(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 8, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 3, 'Suit': 'Hearts'}]
+        isPair = detect_pair(hand)
+        self.assertEqual(isPair, False)
     
     
 

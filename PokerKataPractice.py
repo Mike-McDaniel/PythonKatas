@@ -40,3 +40,7 @@ def parse_hand_string(cards_string):
 
 def parse_hand(hand):
     return get_hand(parse_hand_string(hand))
+
+def detect_pair(x):
+    print(x)
+    return False

@@ -38,9 +38,16 @@ def get_card(cardInput):
         }
     return card
 
-#               parse_hand
-#             /           \              
-#     parse_hand_string   get_hand      
+#        test_detector_pair
+#               |
+#          detect_pair
+#                                                
+#                                                
+#                                                
+#                                                
+#               parse_hand   
+#             /           \                            
+#     parse_hand_string   get_hand                  
 #                            |
 #                         get_card             
 #                        /        \ 
@@ -61,7 +68,7 @@ def get_hand(cards):
 
 # (string) => list<string>
 def parse_hand_string(cards_string):
-    return cards_string.split(" ")
+    
     
 
 # (string) => list<Card>
