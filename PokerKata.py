@@ -190,26 +190,26 @@ def x_printer(count_of_xes):
 
 
 def finding_of_a_kind(cards):
-    hand = {}
+    face_counts = {}
     for card in cards:
         face = card[0]
-        if (face in hand):
-            hand[face] = hand[face] + 1
+        if (face in face_counts):
+            face_counts[face] = face_counts[face] + 1
         else:
-            hand[face] = 1
-    return hand
+            face_counts[face] = 1
+    return face_counts
 
 
 
 def of_a_kind_histogram(cards):
-    hand = {}
+    face_counts = {}
     for card in cards:
-        value = card[0]
-        if (value in hand):
-            hand[value] = hand[value] + "X"
+        face = card[0]
+        if (face in face_counts):
+            face_counts[face] = face_counts[face] + "X"
         else:
-            hand[value] = "X"
-    return hand 
+            face_counts[face] = "X"
+    return face_counts 
 
 
 

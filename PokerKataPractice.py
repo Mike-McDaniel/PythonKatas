@@ -59,7 +59,7 @@ def count_faces(hand):
     face_counts = {}
     for card in hand:
         if (card["Face"] in face_counts):
-            face_counts[card["Face"]] = face_counts[card["Face"]] + 1
+            face_counts[card["Face"]] = face_counts[card["Face"]] + 1 # Please explain: How is the empty dictionary populating?
         else:
             face_counts[card["Face"]] = 1
     return face_counts

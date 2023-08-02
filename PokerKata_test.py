@@ -1,6 +1,6 @@
 import unittest
 
-from PokerKata import x_printer, add10, add, dif, dif_between_sum_of_squares1_2, finding_of_a_kind, get_suit, get_suit_value, get_value, greeting, of_a_kind, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2, upper
+from PokerKata import of_a_kind_histogram, x_printer, add10, add, dif, dif_between_sum_of_squares1_2, finding_of_a_kind, get_suit, get_suit_value, get_value, greeting, of_a_kind, three_of_a_kind, two_of_a_kind, pair, square, sum_of_card_value, sum_of_squares1, sum_of_squares2, upper
 
 class TestStringMethods(unittest.TestCase):
 
@@ -134,8 +134,8 @@ class TestStringMethods(unittest.TestCase):
     def test_finding_of_a_kind(self):
         self.assertEqual(finding_of_a_kind(["4C", "4D", "4H", "3S", "6C"]), {'4': 3, '3': 1, '6': 1})
 
-    # def test_of_a_kind_histogram(self):
-    #     self.assertEqual(of_a_kind_histogram(["4C", "4D", "4H", "3S", "6C"]), {'4': "XXX", '3': "X", '6': "X"})
+    def test_of_a_kind_histogram(self):
+        self.assertEqual(of_a_kind_histogram(["4C", "4D", "4H", "3S", "6C"]), {'4': "XXX", '3': "X", '6': "X"})
 
 
     
