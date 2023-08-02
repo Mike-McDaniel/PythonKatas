@@ -1,6 +1,6 @@
 import unittest
 
-from PokerKataPractice import detect_pair, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
+from PokerKataPractice import count_faces, detect_pair, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
 
 class TestPokerKataPractice(unittest.TestCase):
 
@@ -42,9 +42,9 @@ class TestPokerKataPractice(unittest.TestCase):
         hand = [
             {'Face': 6, 'Suit': 'Clubs'}, 
             {'Face': 4, 'Suit': 'Diamonds'}, 
-            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
             {'Face': 5, 'Suit': 'Hearts'}, 
-            {'Face': 3, 'Suit': 'Hearts'}]
+            {'Face': 6, 'Suit': 'Hearts'}]
         isPair = detect_pair(hand)
         self.assertEqual(isPair, True)
 
@@ -57,8 +57,44 @@ class TestPokerKataPractice(unittest.TestCase):
             {'Face': 3, 'Suit': 'Hearts'}]
         isPair = detect_pair(hand)
         self.assertEqual(isPair, False)
+
+    def test_count_faces_no_dups(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 8, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 3, 'Suit': 'Hearts'}]
+        count = count_faces(hand)
+        self.assertEqual(count[6], 1)
+        self.assertEqual(count[4], 1)
+        self.assertEqual(count[8], 1)
+        self.assertEqual(count[5], 1)
+        self.assertEqual(count[3], 1)
+
+    def test_count_faces_dups(self):
+        hand = [    # List of dictionaries.
+            {'Face': 6, 'Suit': 'Clubs'}, # dictionary with multiple keys and values.
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 3, 'Suit': 'Hearts'}]
+        count = count_faces(hand)
+        self.assertEqual(count,  {6: 2, 4: 1, 5: 1, 3: 1})
     
-    
+'''
+             {'Face': 6, 'Suit': 'Clubs'}, 
+             {'Face': 6, 'Suit': 'Diamonds'}, 
+             {'Face': 4, 'Suit': 'Diamonds'}, 
+             {'Face': 5, 'Suit': 'Hearts'}, 
+             {'Face': 3, 'Suit': 'Hearts'}]
+
+             6: 2,
+             4: 1,
+             5: 1,
+             3: 1
+
+''' 
 
 if __name__ == '__main__':
     unittest.main()

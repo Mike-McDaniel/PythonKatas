@@ -68,8 +68,8 @@ def get_hand(cards):
 
 # (string) => list<string>
 def parse_hand_string(cards_string):
-    
-    
+    return cards_string.split(" ")
+       
 
 # (string) => list<Card>
 def parse_hand(cards_string):

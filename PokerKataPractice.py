@@ -41,6 +41,29 @@ def parse_hand_string(cards_string):
 def parse_hand(hand):
     return get_hand(parse_hand_string(hand))
 
-def detect_pair(x):
-    print(x)
+def detect_pair(hand):
+    face_counts = count_faces(hand)
+    for face in face_counts:
+        count = face_counts[face] 
+        if count == 2:
+            return True
     return False
+    
+        
+def count_faces(hand):
+    face_counts = {}
+    for card in hand:
+        face = card["Face"]
+        if (face in face_counts):
+            face_counts[face] = face_counts[face] + 1
+        else:
+            face_counts[face] = 1
+    return face_counts
+
+'''
+   detect_pair
+        |
+   count_faces
+
+
+'''
