@@ -55,24 +55,24 @@ def detect_pair(hand):
 #             return True
 #     return False
 
-def count_faces(hand):
-    face_counts = {}
-    for card in hand:
-        if (card["Face"] in face_counts):
-            face_counts[card["Face"]] = face_counts[card["Face"]] + 1 # Please explain: How is the empty dictionary populating?
-        else:
-            face_counts[card["Face"]] = 1
-    return face_counts
-
 # def count_faces(hand):
 #     face_counts = {}
 #     for card in hand:
-#         face = card["Face"]
-#         if (face in face_counts):
-#             face_counts[face] = face_counts[face] + 1
+#         if (card["Face"] in face_counts):
+#             face_counts[card["Face"]] = face_counts[card["Face"]] + 1 # Please explain: How is the empty dictionary populating?
 #         else:
-#             face_counts[face] = 1
+#             face_counts[card["Face"]] = 1
 #     return face_counts
+
+def count_faces(hand):
+    face_counts = {}
+    for card in hand:
+        face = card["Face"]
+        if (face in face_counts):
+            face_counts[face] = face_counts[face] + 1
+        else:
+            face_counts[face] = 1
+    return face_counts
 
 '''
    detect_pair
