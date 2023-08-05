@@ -1,6 +1,6 @@
 import unittest
 
-from Experimentations import number_range1, number_range2, number_range_list
+from Experimentations import add, number_range1, number_range2, number_range_list
 
 class TestExperimentations(unittest.TestCase):
 
@@ -19,6 +19,12 @@ class TestExperimentations(unittest.TestCase):
     def test_number_range_list(self):
         self.assertListEqual(number_range_list([0]), [range(0, 0)])
         self.assertListEqual(number_range_list([1, 2, 3]), [range(0, 1), range(0, 2), range(0, 3)])
+
+    def test_add(self):
+        self.assertEqual(add([0]), 0)
+        self.assertEqual(add([1, 2, 3]), 6)
+
+
 
 
 if __name__ == '__main__':

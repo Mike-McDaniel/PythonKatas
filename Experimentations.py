@@ -18,3 +18,11 @@ def number_range_list(numbers):
     for number in numbers:
         num_range.append(range(number))
     return num_range
+
+
+def add(numbers):
+    sum = (0)
+    for number in numbers:
+        sum = sum + number
+    print(sum)    
+    return sum
