@@ -53,14 +53,14 @@ def NumberToOddOrEven(number):
 def OddOrEven(numbers):
     return list(map(NumberToOddOrEven, numbers))
 
-def XOddOrEven(numbers):
-    strings = []
+def OddOrEven(numbers):
+    O_or_E = []
     for number in numbers:
-        if number % 2 == 0:
-            strings.append("even")
+        if number % 2 == 1:
+            O_or_E.append("odd")
         else:
-            strings.append("odd")
-    return strings
+            O_or_E.append("even")
+    return O_or_E
 
 def OddOrPlus10(numbers):
     new_elements = []
@@ -232,3 +232,4 @@ def XbigEnoughNamesN(names):
 
 def bigEnoughNames(names):
     return onlyBigEnough(upperFirstLast(names))
+
