@@ -1,6 +1,6 @@
 import unittest
 
-from PokerKataPractice import count_faces, detect_pair, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
+from PokerKataPractice import count_faces, detect_3oak, detect_4oak, detect_fh, detect_pair, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
 
 class TestPokerKataPractice(unittest.TestCase):
 
@@ -82,19 +82,73 @@ class TestPokerKataPractice(unittest.TestCase):
         count = count_faces(hand)
         self.assertEqual(count,  {6: 2, 4: 1, 5: 1, 3: 1})
     
-'''
-             {'Face': 6, 'Suit': 'Clubs'}, 
-             {'Face': 6, 'Suit': 'Diamonds'}, 
-             {'Face': 4, 'Suit': 'Diamonds'}, 
-             {'Face': 5, 'Suit': 'Hearts'}, 
-             {'Face': 3, 'Suit': 'Hearts'}]
 
-             6: 2,
-             4: 1,
-             5: 1,
-             3: 1
+    def test_detect_3oak_is_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_3oak(hand)
+        self.assertEqual(is3oak, True)
 
-''' 
+
+    def test_detect_3oak_is_not_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_3oak(hand)
+        self.assertEqual(is3oak, False)   
+
+    def test_detect_4oak_is_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Aces'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_4oak(hand)
+        self.assertEqual(is3oak, True)
+
+
+    def test_detect_4oak_is_not_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_4oak(hand)
+        self.assertEqual(is3oak, False)
+
+    def test_detect_fullhouse_is_fullhouse(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 4, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isfh = detect_fh(hand)
+        self.assertEqual(isfh, True)
+
+
+    def test_detect_fullhouse_is_not_fullhouse(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isfh = detect_fh(hand)
+        self.assertEqual(isfh, False)
+
+
+
+
 
 if __name__ == '__main__':
     unittest.main()

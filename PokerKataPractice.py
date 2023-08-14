@@ -74,10 +74,21 @@ def count_faces(hand):
             face_counts[face] = 1
     return face_counts
 
-'''
-   detect_pair
-        |
-   count_faces
 
+def detect_3oak(hand):
+    for face in count_faces(hand):
+        if count_faces(hand)[face] == 3:
+            return True
+        return False   
+    
 
-'''
+def detect_4oak(hand):
+    for face in count_faces(hand):
+        if count_faces(hand)[face] == 4:
+            return True
+        return False
+    
+def detect_fh(hand):
+    if detect_pair(hand) == True and detect_3oak(hand) == True:
+        return True
+    return False
