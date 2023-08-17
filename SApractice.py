@@ -1,5 +1,8 @@
 # Mapping
 
+from functools import reduce
+
+
 def addTen(number):
     return number + 10
 
@@ -127,28 +130,30 @@ def onlyevenstrings(strings):
 # Reduce
 
 def sumList(numbers):
-    total = 0
-    for number in numbers:
-        total = total + number
-    return total
+    return reduce(lambda sum, number: sum + number, numbers, 0)
+
 
 def concatLetters(letters):
+    return reduce(lambda name, letter: name + letter, letters, "")
+
+
+def concatLetters1(letters):
     name = ""
     for letter in letters:
         name = name + letter
     return name
 
 def reverseStrings(letters):
+    return reduce(lambda r_name, letter: letter + r_name, letters, "")
+
+def reverseStrings1(letters):
     r_name = ""
     for letter in letters:
         r_name = letter + r_name
     return r_name
 
 def duplicateLetters(letters):
-    dup_string = ""
-    for letter in letters:
-        dup_string = letter + dup_string + letter
-    return dup_string
+    return reduce(lambda dup_string, letter: letter + dup_string + letter, letters, "")
 
 
 

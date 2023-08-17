@@ -1,6 +1,6 @@
 import unittest
 
-from Experimentations import add, number_range1, number_range2, number_range_list
+from Experimentations import add, concatLetters, number_range1, number_range2, number_range_list
 
 class TestExperimentations(unittest.TestCase):
 
@@ -23,6 +23,10 @@ class TestExperimentations(unittest.TestCase):
     def test_add(self):
         self.assertEqual(add([0]), 0)
         self.assertEqual(add([1, 2, 3]), 6)
+
+    def test_concatLetters(self):
+        self.assertEqual(concatLetters([]), "")
+        self.assertEqual(concatLetters(["S","a", "m"]), "Sam")
 
 
 
