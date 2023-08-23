@@ -88,3 +88,56 @@ print(reduce((lambda sum, number: sum + number), [1,2,3,4,5], 0))
 # return = 15
 
 # 15
+
+
+
+def get_face(Card):
+    Face = {
+        '2' : 2,
+        '3' : 3,
+        '4' : 4,
+        '5' : 5,
+        '6' : 6,
+        '7' : 7,
+        '8' : 8,
+        '9' : 9,
+        'T' : 10,
+        'J' : 11,
+        'Q' : 12,
+        'K' : 13,
+        'A' : 14
+    }
+    Value = Card[0]
+    return Face[Value]
+
+def get_suit(Card):
+    Suit = {
+        'D' : 'Diamonds',
+        'C' : 'Clubs',
+        'H' : 'Hearts',
+        'S' : 'Spades'
+    }
+    Value = Card[1]
+    return Suit[Value]
+
+def get_card(Card):
+    Card_call = {
+        'face' : get_face(Card),
+        'suit' : get_suit(Card)
+    }
+    return Card_call
+
+def get_hand(Cards):
+    Hand = []
+    for Card in Cards:
+        Hand.append(get_card(Card))
+    return Hand
+
+def parse_hand_string(Cards):
+    return Cards.split(' ')
+
+def parse_hand(Cards):
+    return get_hand(parse_hand_string(Cards))
+
+def count_faces(Hand):
+    
