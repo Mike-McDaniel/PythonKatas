@@ -140,4 +140,10 @@ def parse_hand(Cards):
     return get_hand(parse_hand_string(Cards))
 
 def count_faces(Hand):
-    
+    Count = {}
+    for Card in Hand:
+        if (Card['Face'] in Count):
+            Count[Card['Face']] = Count[Card['Face']] +1
+        else:
+            Count[Card['Face']] = 1
+    return Count
