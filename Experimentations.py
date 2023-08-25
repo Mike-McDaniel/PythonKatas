@@ -147,3 +147,26 @@ def count_faces(Hand):
         else:
             Count[Card['Face']] = 1
     return Count
+
+def detect_pair(Hand):
+    for Face in count_faces(Hand):
+        if count_faces(Hand)[Face] == 2:
+            return True
+    return False
+        
+def detect_3oak(Hand):
+    for Face in count_faces(Hand):
+        if count_faces(Hand)[Face] == 3:
+            return True
+    return False
+        
+def detect_4oak(Hand):
+    for Face in count_faces(Hand):
+        if count_faces(Hand)[Face] == 4:
+            return True
+    return False
+        
+def detect_fh(Hand):
+    if detect_pair(Hand) == True and detect_3oak(Hand) == True:
+        return True
+    return False

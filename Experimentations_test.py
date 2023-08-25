@@ -1,6 +1,6 @@
 import unittest
 
-from Experimentations import add, concatLetters, count_faces, get_card, get_face, get_hand, get_suit, number_range1, number_range2, number_range_list, parse_hand, parse_hand_string
+from Experimentations import add, concatLetters, count_faces, detect_3oak, detect_4oak, detect_fh, detect_pair, get_card, get_face, get_hand, get_suit, number_range1, number_range2, number_range_list, parse_hand, parse_hand_string
 
 class TestExperimentations(unittest.TestCase):
 
@@ -103,85 +103,85 @@ class TestExperimentations(unittest.TestCase):
         count = count_faces(hand)
         self.assertEqual(count,  {6: 2, 4: 1, 5: 1, 3: 1})
 
-    # def test_detect_pair_is_pair(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 2, 'Suit': 'Diamonds'}, 
-    #         {'Face': 5, 'Suit': 'Hearts'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     isPair = detect_pair(hand)
-    #     self.assertEqual(isPair, True)
+    def test_detect_pair_is_pair(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isPair = detect_pair(hand)
+        self.assertEqual(isPair, True)
 
-    # def test_detect_pair_is_not_pair(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 8, 'Suit': 'Diamonds'}, 
-    #         {'Face': 5, 'Suit': 'Hearts'}, 
-    #         {'Face': 3, 'Suit': 'Hearts'}]
-    #     isPair = detect_pair(hand)
-    #     self.assertEqual(isPair, False)
+    def test_detect_pair_is_not_pair(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 8, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 3, 'Suit': 'Hearts'}]
+        isPair = detect_pair(hand)
+        self.assertEqual(isPair, False)
 
-    # def test_detect_3oak_is_3oak(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 6, 'Suit': 'Diamonds'}, 
-    #         {'Face': 5, 'Suit': 'Hearts'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     is3oak = detect_3oak(hand)
-    #     self.assertEqual(is3oak, True)
+    def test_detect_3oak_is_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_3oak(hand)
+        self.assertEqual(is3oak, True)
 
-    # def test_detect_3oak_is_not_3oak(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 2, 'Suit': 'Diamonds'}, 
-    #         {'Face': 5, 'Suit': 'Hearts'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     is3oak = detect_3oak(hand)
-    #     self.assertEqual(is3oak, False)
+    def test_detect_3oak_is_not_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_3oak(hand)
+        self.assertEqual(is3oak, False)
 
-    # def test_detect_4oak_is_3oak(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 6, 'Suit': 'Diamonds'}, 
-    #         {'Face': 6, 'Suit': 'Aces'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     is3oak = detect_4oak(hand)
-    #     self.assertEqual(is3oak, True)
+    def test_detect_4oak_is_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Aces'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_4oak(hand)
+        self.assertEqual(is3oak, True)
 
-    # def test_detect_4oak_is_not_3oak(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 2, 'Suit': 'Diamonds'}, 
-    #         {'Face': 5, 'Suit': 'Hearts'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     is3oak = detect_4oak(hand)
-    #     self.assertEqual(is3oak, False)
+    def test_detect_4oak_is_not_3oak(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        is3oak = detect_4oak(hand)
+        self.assertEqual(is3oak, False)
 
-    # def test_detect_fullhouse_is_fullhouse(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 6, 'Suit': 'Diamonds'}, 
-    #         {'Face': 4, 'Suit': 'Hearts'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     isfh = detect_fh(hand)
-    #     self.assertEqual(isfh, True)
+    def test_detect_fullhouse_is_fullhouse(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 4, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isfh = detect_fh(hand)
+        self.assertEqual(isfh, True)
 
-    # def test_detect_fullhouse_is_not_fullhouse(self):
-    #     hand = [
-    #         {'Face': 6, 'Suit': 'Clubs'}, 
-    #         {'Face': 4, 'Suit': 'Diamonds'}, 
-    #         {'Face': 2, 'Suit': 'Diamonds'}, 
-    #         {'Face': 5, 'Suit': 'Hearts'}, 
-    #         {'Face': 6, 'Suit': 'Hearts'}]
-    #     isfh = detect_fh(hand)
-    #     self.assertEqual(isfh, False)
+    def test_detect_fullhouse_is_not_fullhouse(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isfh = detect_fh(hand)
+        self.assertEqual(isfh, False)
 
 
 
