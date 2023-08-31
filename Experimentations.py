@@ -170,3 +170,19 @@ def detect_fh(Hand):
     if detect_pair(Hand) == True and detect_3oak(Hand) == True:
         return True
     return False
+
+def count_suits(Hand):
+    Count = {}
+    for Card in Hand:
+        if (Card['Suit'] in Count):
+            Count[Card['Suit']] = Count[Card['Suit']] +1
+        else:
+            Count[Card['Suit']] = 1
+    print(Count)
+    return Count
+
+def detect_flush(Hand):
+    for Suit in count_suits(Hand):
+        if count_suits(Hand)[Suit] == 5:
+            return True
+    return False

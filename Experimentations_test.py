@@ -1,6 +1,6 @@
 import unittest
 
-from Experimentations import add, concatLetters, count_faces, detect_3oak, detect_4oak, detect_fh, detect_pair, get_card, get_face, get_hand, get_suit, number_range1, number_range2, number_range_list, parse_hand, parse_hand_string
+from Experimentations import add, concatLetters, count_faces, count_suits, detect_3oak, detect_4oak, detect_fh, detect_flush, detect_pair, get_card, get_face, get_hand, get_suit, number_range1, number_range2, number_range_list, parse_hand, parse_hand_string
 
 class TestExperimentations(unittest.TestCase):
 
@@ -182,6 +182,36 @@ class TestExperimentations(unittest.TestCase):
             {'Face': 6, 'Suit': 'Hearts'}]
         isfh = detect_fh(hand)
         self.assertEqual(isfh, False)
+    
+    def test_count_suits(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'},
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 6, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 3, 'Suit': 'Hearts'}]
+        count = count_suits(hand)
+        self.assertEqual(count,  {'Clubs': 1, 'Diamonds': 2, 'Hearts': 2})
+
+    def test_detect_flush_is_flush(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Hearts'}, 
+            {'Face': 7, 'Suit': 'Hearts'}, 
+            {'Face': 8, 'Suit': 'Hearts'}, 
+            {'Face': 9, 'Suit': 'Hearts'}, 
+            {'Face': 10, 'Suit': 'Hearts'}]
+        isflush = detect_flush(hand)
+        self.assertEqual(isflush, True)    
+
+    def test_detect_flush_is_not_flush(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isflush = detect_flush(hand)
+        self.assertEqual(isflush, False)
 
 
 
