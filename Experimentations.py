@@ -178,11 +178,50 @@ def count_suits(Hand):
             Count[Card['Suit']] = Count[Card['Suit']] +1
         else:
             Count[Card['Suit']] = 1
-    print(Count)
+    # print(Count)
     return Count
 
-def detect_flush(Hand):
+def detect_flush1(Hand):
     for Suit in count_suits(Hand):
         if count_suits(Hand)[Suit] == 5:
             return True
     return False
+
+def detect_flush(Hand):
+    # memoization
+    counts = count_suits(Hand)
+    for Suit in counts:
+        if counts[Suit] == 5:
+            return True
+    return False
+
+# if sorted (small->large), each face is +1 from the previous face, starting with the smallest
+
+# there exists 1 of each face, and the smallest and largest are 4 apart
+
+# (tree-based solution) starting with a number, does there exist -1/+1 from that number in the list, keep walking until you've seen 5 numbers
+def detect_straight(Hand):
+    # extract faces
+    Faces = []
+    for Card in Hand:
+        Faces.append(Card['Face'])
+    # sort faces small to large
+    Faces.sort()
+
+    # ensure each face is +1 the previous face
+    previousFace = Faces.pop(0) 
+    for currentFace in Faces: 
+        if(previousFace + 1 == currentFace):
+            previousFace = currentFace
+        else:
+            return False
+    return True
+
+    # previousFace = Faces[0] 
+    # for currentFace in Faces[1:]:     #  Faces[1:] keeps everything from index 1 to the end of the list
+    #     if(previousFace + 1 == currentFace):
+    #         previousFace = currentFace
+    #     else:
+    #         return False
+
+    # return True
