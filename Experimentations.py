@@ -209,19 +209,19 @@ def detect_straight(Hand):
     Faces.sort()
 
     # ensure each face is +1 the previous face
-    previousFace = Faces.pop(0) 
-    for currentFace in Faces: 
-        if(previousFace + 1 == currentFace):
-            previousFace = currentFace
-        else:
-            return False
-    return True
-
-    # previousFace = Faces[0] 
-    # for currentFace in Faces[1:]:     #  Faces[1:] keeps everything from index 1 to the end of the list
+    # previousFace = Faces.pop(0) 
+    # for currentFace in Faces: 
     #     if(previousFace + 1 == currentFace):
     #         previousFace = currentFace
     #     else:
     #         return False
-
     # return True
+
+    previousFace = Faces[0] 
+    for currentFace in Faces[1:]:     #  Faces[1:] keeps everything from index 1 to the end of the list
+        if(previousFace + 1 == currentFace):
+            previousFace = currentFace
+        else:
+            return False
+
+    return True
