@@ -107,3 +107,16 @@ def detect_flush(Hand):
         if count_suits(Hand)[Suit] == 5:
             return True
     return False
+
+def detect_straight(Hand):
+    Faces = []
+    for Card in Hand:
+        Faces.append(Card['Face'])
+    Faces.sort()
+    PreviousFace = Faces[0]
+    for CurrentFace in Faces[1:]:
+        if (PreviousFace + 1 == CurrentFace):
+            PreviousFace = CurrentFace
+        else:
+            return False
+    return True

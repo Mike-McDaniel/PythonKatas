@@ -1,6 +1,6 @@
 import unittest
 
-from PokerKataPractice import count_faces, count_suits, detect_3oak, detect_4oak, detect_fh, detect_flush, detect_pair, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
+from PokerKataPractice import count_faces, count_suits, detect_3oak, detect_4oak, detect_fh, detect_flush, detect_pair, detect_straight, get_card, get_face, get_hand, get_suit, parse_hand, parse_hand_string
 
 class TestPokerKataPractice(unittest.TestCase):
 
@@ -174,6 +174,26 @@ class TestPokerKataPractice(unittest.TestCase):
             {'Face': 6, 'Suit': 'Hearts'}]
         isflush = detect_flush(hand)
         self.assertEqual(isflush, False)
+
+    def test_detect_straight_is_straight(self):
+        hand = [
+            {'Face': 8, 'Suit': 'Hearts'}, 
+            {'Face': 7, 'Suit': 'Hearts'}, 
+            {'Face': 9, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}, 
+            {'Face': 10, 'Suit': 'Hearts'}]
+        isstraight = detect_straight(hand)
+        self.assertEqual(isstraight, True)    
+
+    def test_detect_straight_is_not_straight(self):
+        hand = [
+            {'Face': 6, 'Suit': 'Clubs'}, 
+            {'Face': 4, 'Suit': 'Diamonds'}, 
+            {'Face': 2, 'Suit': 'Diamonds'}, 
+            {'Face': 5, 'Suit': 'Hearts'}, 
+            {'Face': 6, 'Suit': 'Hearts'}]
+        isstraight = detect_straight(hand)
+        self.assertEqual(isstraight, False)
 
 
 
